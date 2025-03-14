@@ -1,0 +1,24 @@
+* wl-security-context
+=wl-security-context= makes use of [[https://wayland.app/protocols/security-context-v1][Wayland security context protocol]].
+It runs your program with security context attached, so that it cannot
+access sensitive protocols(e.g. screencopy_manager).
+
+** Installation
+*** Arch Linux
+=wl-security-context= is available at [[https://aur.archlinux.org/packages/wl-security-context][AUR]].
+*** Other
+You can manually clone this repository, then use =ninja install=.
+#+begin_src sh
+  git clone https://github.com/OkamiW/wl-security-context
+  cd wl-security-context
+  meson setup build
+  cd build
+  ninja
+  sudo ninjc install
+#+end_src
+
+** Usage
+Run your program with security context attached:
+#+begin_src sh
+  wl-security-context $program
+#+end_src
